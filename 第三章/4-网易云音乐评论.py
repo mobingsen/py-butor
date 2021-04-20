@@ -40,9 +40,16 @@ def get_params(data):
     return second
 
 
+def to_16(data):
+    pad = 16 - len(data) % 16
+    data += chr(pad) * pad
+    return data
+
+
 def enc_paprams(data, key):
+    data = to_16(data)
     aes = AES.new(key=key.encode("utf-8"), IV="0102030405060708".encode("utf-8"), mode=AES.MODE_CBC)
-    bs = aes.encrypt(data)
+    bs = aes.encrypt(data.encode("utf-8"))
     return str(b64encode(bs), "utf-8")
 
 
