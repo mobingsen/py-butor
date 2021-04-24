@@ -30,3 +30,8 @@ web = Chrome()
 
 web.get("https://www.91kanju.com/vod-play/541-2-1.html")
 
+iframe = web.find_element_by_xpath('//*[@id="player_iframe"]')
+web.switch_to.frame(iframe)
+# web.switch_to.default_content() # 切换会我们的原页面
+tx = web.find_element_by_xpath('//*[@id="main"]/h3[1]').text
+print(tx)
