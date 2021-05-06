@@ -1,4 +1,4 @@
-from Crypto.Cipher import AES  # pip install pycrypto
+from Crypto.Cipher import AES  # pip install pycrypto   pip install pycryptodome
 from base64 import b64encode
 import requests
 import json
